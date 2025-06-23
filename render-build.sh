@@ -1,18 +1,17 @@
 #!/bin/bash
 set -euo pipefail
-echo "=== Starting Build ==="
 
-# Cleanup and install
+# Clean and install
 npm cache clean --force
-echo "NPM cache cleaned"
+rm -rf node_modules/
+npm install
 
-npm install --no-audit --prefer-offline
-echo "Dependencies installed"
+# Install types if any are missing (safety check)
+npm install --save-dev @types/node @types/express @types/cors @types/uuid || true
 
-# Add any build steps here if needed
+# Build TypeScript
 npm run build
 
-echo "=== Build Successful ==="
-
-echo "Checking dist folder contents:"
+# Verify build
+echo "Build contents:"
 ls -l dist/
