@@ -10,6 +10,9 @@ npm install --no-audit --prefer-offline
 echo "Dependencies installed"
 
 # Add any build steps here if needed
-# npm run build
+npm run build
 
 echo "=== Build Successful ==="
+
+echo "Checking dist folder contents:"
+ls -l dist/
