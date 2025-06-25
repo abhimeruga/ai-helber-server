@@ -1,8 +1,8 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors';
-import axios from 'axios';
-import dotenv from 'dotenv';
-import { CohereClient } from "cohere-ai";
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+const dotenv = require('dotenv');
+const { CohereClient } = require('cohere-ai');
 
 dotenv.config();
 
