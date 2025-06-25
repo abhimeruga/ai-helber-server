@@ -5,10 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "ts-node index.ts",
-    "build": "tsc && npm run postbuild",
-    "postbuild": "cp -r src/public dist/ || true",
-    "install-types": "npm install @types/node @types/express @types/cors @types/body-parser",
+    "dev": "node index.ts",
     "start": "node dist/index.js"
   },
   "keywords": [],
@@ -21,23 +18,5 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.6",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^4.17.23",
-    "@types/express-serve-static-core": "^5.0.6",
-    "@types/http-errors": "^2.0.5",
-    "@types/mime": "^4.0.0",
-    "@types/node": "^20.19.1",
-    "@types/qs": "^6.14.0",
-    "@types/range-parser": "^1.2.7",
-    "@types/serve-static": "^1.15.8",
-    "@types/uuid": "^10.0.0",
-    "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": "18.x",
-    "npm": "9.x"
   }
 }

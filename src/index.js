@@ -12,17 +12,14 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-const preambles: Record<string, string> = {
+const preambles = {
   poems: "You are a poetic assistant who writes beautiful and emotional poems.",
   code: "You are a professional software engineer helping with JavaScript/TypeScript.",
   grammar: "You are a grammar assistant. You correct the user's sentence.",
 };
 
-app.post('/api/chat', async (req: Request, res: Response) => {
-  const { message, mode = 'default' } = req.body as {
-    message: string;
-    mode?: string;
-  };
+app.post('/api/chat', async (req, res) => {
+  const { message, mode = 'default' } = req.body;
 
   const preamble = preambles[mode] || "You are a helpful assistant.";
 
@@ -61,7 +58,7 @@ app.post('/api/chat', async (req: Request, res: Response) => {
     const assistantText = response.text || "No response";
     res.json({ reply: assistantText });
 
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error from Cohere:', error?.response?.data || error.message);
     res.status(500).json({ reply: 'Something went wrong.' });
   }
