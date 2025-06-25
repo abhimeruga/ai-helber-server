@@ -9,7 +9,9 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://abhimeruga.github.io', 'http://localhost:3000']
+}));
 app.use(express.json());
 
 const preambles = {
